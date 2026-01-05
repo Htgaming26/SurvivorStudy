@@ -13,7 +13,7 @@ public class Program : MonoBehaviour
     public float minDisToPlayer = 4f;
     public int maxTry = 20;
     public float spawnTime = 2f;
-    public float radius = 5f;
+    //public float radius = 5f;
 
     Player player;
 
@@ -21,6 +21,7 @@ public class Program : MonoBehaviour
 
     // ui
     [SerializeField] HealthBarUI healthBar;
+    [SerializeField] ExpManager expBar;
 
     void Awake()
     {
@@ -28,7 +29,7 @@ public class Program : MonoBehaviour
         // sinh ra player
         GameObject playerObj = Instantiate(playerPrefab, new Vector2(0, 1), Quaternion.identity);
         player = playerObj.GetComponent<Player>();
-        player.Init(bound, monsters, healthBar); // TODO
+        player.Init(bound, monsters, healthBar, expBar); // TODO
 
         // sinh ra monster
         //InvokeRepeating(nameof(SpawnMonster), 0f, spawnTime);
@@ -36,12 +37,13 @@ public class Program : MonoBehaviour
 
         // init ui
         healthBar.Init(player);
+        expBar.Init(player);
     }
     void Start()
     {
-        InvokeRepeating(nameof(SpawnMonster), 1f, spawnTime);
+        InvokeRepeating(nameof(SpawnMonster), 0.2f, spawnTime);
     }
-    void SpawnMonster()
+    public void SpawnMonster()
     {
         /*while (true)
         {

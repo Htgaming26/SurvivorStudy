@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4960890629458878650}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2023923573111878767, guid: 0207d8aa2cd498045a6ba121beb27794, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -126,12 +126,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4a0e3f2922c6946ae6351d1f9d449f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  timeShoot: 0.5
-  hp: 50
+  TimeSpawnBoom: 2
+  speed: 4.5
+  timeShoot: 2
+  hp: 35
   animator: {fileID: 7313242722107809998}
-  renderer: {fileID: 7718326746248173297}
+  render: {fileID: 7718326746248173297}
   bulletPrefab: {fileID: 2085756638290189897, guid: 3e525334d4c27e84aaadd83b4d9b2f92, type: 3}
+  boomPrefab: {fileID: 0}
   firePoint: {fileID: 0}
   center: {fileID: 4960890629458878650}
 --- !u!70 &6632268533898954066

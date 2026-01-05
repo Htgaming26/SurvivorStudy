@@ -1,38 +1,46 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
+    
+    bool boomUnlocked;
+
+    public float TimeSpawnBoom = 2f;
     public float speed = 10f;
     public float timeShoot = 2f;
     public int hp = 50;
     public int maxHp { get; private set; }
 
     public Animator animator;
-    public SpriteRenderer renderer;
+    public SpriteRenderer render;
     public GameObject bulletPrefab;
+    public GameObject boomPrefab;
     public Transform firePoint;
     public Transform center;
 
     Bound bound;
     List<Monster> monsters;
     HealthBarUI healthBar;
+    ExpManager expBar;
 
     Vector3 position;
 
     bool isHurt = false;
 
-    public void Init(Bound bound, List<Monster> monsters, HealthBarUI healthBar)
+    public void Init(Bound bound, List<Monster> monsters, HealthBarUI healthBar, ExpManager expBar) // dependency injection
     {
         this.bound = bound;
         this.monsters = monsters;
         this.healthBar = healthBar;
+        this.expBar = expBar;
     }
 
     void Start()
     {
         position = transform.position;
-        ///InvokeRepeating(nameof(Shoot), 1f, timeShoot);
+        InvokeRepeating(nameof(Shoot), 0.5f, timeShoot);
         maxHp = hp;
     }
 
@@ -54,19 +62,22 @@ public class Player : MonoBehaviour
             animator.SetBool("IsMoving", true);
             if (x > 0)
             {
-                renderer.flipX = false;
+                render.flipX = false;
             }
             else if (x < 0)
             {
-                renderer.flipX = true;
+                render.flipX = true;
             }
         }
         else
         {
             animator.SetBool("IsMoving", false);
 
-            
+
         }
+
+        if (boomUnlocked && !IsInvoking(nameof(SpawnBoom)))
+            InvokeRepeating(nameof(SpawnBoom), 0f, TimeSpawnBoom);
 
         #region shoot
         /*if (Input.GetKeyDown(KeyCode.Space))
@@ -120,6 +131,23 @@ public class Player : MonoBehaviour
         bullet.GetComponent<Bullet>().SetDirection(direction);
        */
     }
+    public void StartShoot()
+    {
+        CancelInvoke(nameof(Shoot));
+        InvokeRepeating(nameof(Shoot), 0.5f, timeShoot);
+    }
+    public void SpawnBoom()
+    {
+       GameObject boomObj = Instantiate(boomPrefab, transform.position, Quaternion.identity);
+
+        Boom boom = boomObj.GetComponent<Boom>();
+        boom.player = transform;
+    }
+
+    public void UnlockBoom()
+    {
+        boomUnlocked = true;
+    }
     void Shoot()
     {
         Monster monster = GetNearestMonster();
@@ -132,6 +160,17 @@ public class Player : MonoBehaviour
         );
         bullet.GetComponent<Bullet>().SetTarget(monster);
     }
+    public void SetTimeShoot(float newTime)
+    {
+        timeShoot = newTime;
+        StartShoot();
+    }
+
+    public void TakeExp(int exp)
+    {
+        expBar.AddExperience(exp);
+    }
+
     public void TakeDamage(int damage)
     {
         if (isHurt)
@@ -155,6 +194,7 @@ public class Player : MonoBehaviour
     void Die()
     {
         Debug.Log("Player Dead");
+        Destroy(gameObject);
     }
 
     public void HurtEnd()
@@ -162,4 +202,6 @@ public class Player : MonoBehaviour
         Debug.Log("hurt end");
         isHurt = false;
     }
+
+
 }

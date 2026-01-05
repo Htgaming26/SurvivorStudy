@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3076844785340103382}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3868140787272205376}
   - component: {fileID: 556151016906617177}
   - component: {fileID: 838759449555466587}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monster
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 252.61398, y: 0.16005537, z: -0.03138121}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3076844785340103382}
@@ -111,7 +111,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1313358782, guid: cf56fb0cbd778b24c95f07045ee8d669, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -157,10 +157,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d513c23cc2889fa48a9a6a937c7216b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  hp: 5
+  stopDistanceToPlayer: 0.5
+  separationRadius: 0.5
+  separationWeight: 0.6
+  pushForce: 1.5
+  monsterLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  expPrefab: {fileID: 0}
+  dropped: 0
+  speed: 0.6
+  hp: 6
+  damage: 1
   animator: {fileID: 5704812771918770641}
-  renderer: {fileID: 5977531654692491992}
+  render: {fileID: 5977531654692491992}
+  isDead: 0
   center: {fileID: 3076844785340103382}
 --- !u!50 &556151016906617177
 Rigidbody2D:
