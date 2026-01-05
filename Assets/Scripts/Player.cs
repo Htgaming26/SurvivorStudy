@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public GameObject boomPrefab;
     public Transform firePoint;
     public Transform center;
+    public Transform floatDamageSpawner;
+    public GameObject floatDamagePrefab;
 
     Bound bound;
     List<Monster> monsters;
@@ -190,6 +192,9 @@ public class Player : MonoBehaviour
 
         // update health bar
         healthBar.UpdateHealth();
+        //
+        Instantiate(floatDamagePrefab, floatDamageSpawner.position, Quaternion.identity)
+        .GetComponent<FloatDamage>().SetText(damage);
     }
     void Die()
     {

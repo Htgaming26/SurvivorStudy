@@ -26,6 +26,8 @@ public class Monster : MonoBehaviour
     public SpriteRenderer render;
     public bool isDead = false;
     public Transform center;
+    public Transform floatDamageSpawner;
+    public GameObject floatDamagePrefab;
 
     Vector2 lastDir;
 
@@ -114,6 +116,9 @@ public class Monster : MonoBehaviour
         {
             Die();
         }
+
+        Instantiate(floatDamagePrefab, floatDamageSpawner.position, Quaternion.identity)
+        .GetComponent<FloatDamage>().SetText(damage);
     }
 
     void Die()

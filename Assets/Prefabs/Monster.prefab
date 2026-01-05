@@ -66,6 +66,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3076844785340103382}
+  - {fileID: 3876938011601245616}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5977531654692491992
@@ -164,7 +165,7 @@ MonoBehaviour:
   monsterLayer:
     serializedVersion: 2
     m_Bits: 8
-  expPrefab: {fileID: 0}
+  expPrefab: {fileID: 8884574524435243644, guid: 4c924ce59d5308b458ab595ab705b5f6, type: 3}
   dropped: 0
   speed: 0.6
   hp: 6
@@ -173,6 +174,8 @@ MonoBehaviour:
   render: {fileID: 5977531654692491992}
   isDead: 0
   center: {fileID: 3076844785340103382}
+  floatDamageSpawner: {fileID: 3876938011601245616}
+  floatDamagePrefab: {fileID: 616692531912222720, guid: 52e0c3d2abd90164e8006f3c1bef9ac2, type: 3}
 --- !u!50 &556151016906617177
 Rigidbody2D:
   serializedVersion: 5
@@ -237,3 +240,34 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00055562786, y: 0.056076135}
   m_Size: {x: 0.144824, y: 0.11773556}
   m_Direction: 1
+--- !u!1 &7029250031323161884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3876938011601245616}
+  m_Layer: 3
+  m_Name: damageSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3876938011601245616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7029250031323161884}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.087, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2599071351398839781}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

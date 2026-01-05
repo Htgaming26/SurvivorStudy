@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4960890629458878650}
+  - {fileID: 4692312312886589993}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7718326746248173297
@@ -133,9 +134,11 @@ MonoBehaviour:
   animator: {fileID: 7313242722107809998}
   render: {fileID: 7718326746248173297}
   bulletPrefab: {fileID: 2085756638290189897, guid: 3e525334d4c27e84aaadd83b4d9b2f92, type: 3}
-  boomPrefab: {fileID: 0}
+  boomPrefab: {fileID: 3565024284138838967, guid: 6a0afb657cfcc54418f7a2f73651d34c, type: 3}
   firePoint: {fileID: 0}
   center: {fileID: 4960890629458878650}
+  floatDamageSpawner: {fileID: 4692312312886589993}
+  floatDamagePrefab: {fileID: 616692531912222720, guid: 52e0c3d2abd90164e8006f3c1bef9ac2, type: 3}
 --- !u!70 &6632268533898954066
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -200,6 +203,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1 &6126079001380438715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4692312312886589993}
+  m_Layer: 0
+  m_Name: damageSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4692312312886589993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126079001380438715}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1355, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3876803421255668831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7689725583124785186
 GameObject:
   m_ObjectHideFlags: 0

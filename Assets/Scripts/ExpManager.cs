@@ -50,7 +50,7 @@ public class ExpManager : MonoBehaviour
             UpdateLevel();
             
                 if (currentLevel == 1)
-                    player.timeShoot -= 0.3f;
+                    player.timeShoot -= 0.3f; // hard code
                 if (currentLevel == 2)
                     player.timeShoot -= 0.5f;
                 if (currentLevel == 3)

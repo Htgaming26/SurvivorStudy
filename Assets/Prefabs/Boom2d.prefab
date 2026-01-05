@@ -173,4 +173,4 @@ MonoBehaviour:
   monsterLayer:
     serializedVersion: 2
     m_Bits: 8
-  player: {fileID: 0}
+  player: {fileID: 3876803421255668831, guid: d56760e1cfaa62040bcf62096ec5ea4f, type: 3}
